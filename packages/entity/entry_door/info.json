@@ -1,0 +1,115 @@
+{
+	"editor_version": 3,
+	"name": "Entry Door",
+	
+	"editor": {
+		"locked": true,
+		"hidden": true,
+		"mesh": "res://packages/editor/meshes/entry_door.obj",
+		
+		"size": "(1,1,1)",
+		
+		"options": {
+			"portalgun_variant": {
+				"type": "radio",
+				"value": 0,
+				"name": "Portal Gun",
+				"options": [
+					"Dual Portal Device",
+					"Blue Monoportal Device",
+					"Orange Monoportal Device",
+					"None"
+				]
+			}
+		}
+	},
+	
+	"export": {
+		"_comment_embedded_voxels": [
+			"embedded_voxels is stored relative to the surface the object is placed on",
+			"(0,0,0) is the entity's position (unncessary), with (0,-1,0) being the voxel directly 'below' the entity"
+		],
+		"embedded_volumes": [
+			{
+				"start": "(0, 0, 0)",
+				"end": "(1, -1, 1)"
+			}
+		],
+		"_comment_connections": [
+			"inputs is a dictionary storing each connection type. adding more than one will prompt the user when connecting an item,",
+			"similar to how funnels work in the base puzzlemaker. invert is replaced with a fixup value, and can be omitted.",
+			"if invert is true, 'activate' will be triggered on map load.",
+			"IMPORTANT: use 'default' as your i/o name if there is only one.",
+			"IMPORTANT: the connections array should not be prefixed with an underscore. it is only here to give an example of how it should work."
+		],
+		"_connections": {
+			"inputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:door;Open",
+					"deactivate": "instance:door;Close",
+					"invert": "$deactivate_var"
+				}
+			},
+			"outputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:button;OnPressed",
+					"deactivate": "instance:button;OnUnPressed",
+					"invert": "$deactivate_var"
+				}
+			}
+		},
+		"_comment_conditions": [
+			"conditions is a required array, storing condition blocks.",
+			"condition arrays can be nested, such as when using switch/if.",
+			"type can be many things, such as 'add_instance' to add an instance entity, or 'switch' to",
+			"define a switch statement. see a list of types on the wiki: TODO: add wiki link",
+			"this is essentially an overly-complex way of implementing if statements with json."
+		],
+		"conditions": [
+			{
+				"type": "add_instance",
+				"instance": "doors/entry_door"
+			},
+			{
+				"type": "add_instance",
+				"instance": "doors/door_frame_black"
+			},
+			{
+				"type": "add_instance",
+				"instance": "entry/corridor_1"
+			},
+			{
+				"type": "add_instance",
+				"instance": "arrival_departure_transition_ents",
+				"global_position": "(32,32,24)"
+			},
+			{
+				"type": "add_instance",
+				"instance": "entry/elevator_entrance",
+				"global_position": "(32,32,32)",
+				"fixups": {
+					"$blue_portal": {
+						"key": "portalgun_variant",
+						"results": {
+							"0": "1",
+							"1": "1",
+							"2": "0",
+							"3": "0"
+						}
+					},
+					"$orange_portal": {
+						"key": "portalgun_variant",
+						"results": {
+							"0": "1",
+							"1": "0",
+							"2": "1",
+							"3": "0"
+						}
+					},
+				}
+			}
+		]
+	}
+}

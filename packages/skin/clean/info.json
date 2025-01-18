@@ -1,0 +1,34 @@
+{
+	"editor_version": 1,
+	"name": "Clean",
+	"materials": {
+		"portalable": {
+			"wall": {
+				"4x4w": 1,
+				"2x2w": 1,
+				"1x2w": 1
+			},
+			"floor": {
+				"floorw": 1
+			},
+			"ceiling": {
+				"4x4w": 1,
+				"2x2w": 1
+			}
+		},
+		"unportalable": {
+			"wall": {
+				"4x4b": 1,
+				"2x2b": 1,
+				"1x2b": 1
+			},
+			"floor": {
+				"floorb": 1
+			},
+			"ceiling": {
+				"4x4b": 1,
+				"2x2b": 1
+			}
+		}
+	}
+}

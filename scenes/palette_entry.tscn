@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ryio2kwadip0"]
+
+[ext_resource type="Theme" uid="uid://blqeodxpudovq" path="res://themes/perpetual/perpetual.tres" id="1_fb1mo"]
+[ext_resource type="Script" path="res://scripts/interface/PaletteButton.gd" id="2_6e1y6"]
+
+[node name="PaletteEntry" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(72, 72)
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 1
+theme = ExtResource("1_fb1mo")
+script = ExtResource("2_6e1y6")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+expand_mode = 1

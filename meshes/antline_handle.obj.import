@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://i6ntw5qrwnne"
+path="res://.godot/imported/antline_handle.obj-4d961dbfa79b9b881e9d2b36f01d2638.mesh"
+
+[deps]
+
+files=["res://.godot/imported/antline_handle.obj-4d961dbfa79b9b881e9d2b36f01d2638.mesh"]
+
+source_file="res://meshes/antline_handle.obj"
+dest_files=["res://.godot/imported/antline_handle.obj-4d961dbfa79b9b881e9d2b36f01d2638.mesh", "res://.godot/imported/antline_handle.obj-4d961dbfa79b9b881e9d2b36f01d2638.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

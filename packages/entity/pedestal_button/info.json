@@ -1,0 +1,71 @@
+{
+	"editor_version": 3,
+	"name": "Pedestal Button",
+	"icon": "res://packages/entity/pedestal_button/icon.png",
+	
+	"editor": {
+		"mesh": "res://packages/editor/meshes/pedestal_button.obj",
+		
+		"options": {
+			"reset_time": {
+				"type": "timer",
+				"value": 5,
+				"name": "Button Time",
+			}
+		},
+		
+		"size": "(1,1,0.25)",
+		"offset": "(0,0,0)",
+
+		"handles": {
+			"rotation": {
+				"type": "rotation_90_deg",
+				"mesh": "res://meshes/handle/arc.obj",
+				"rotatable": false,
+				"value": 0,
+				"positions": [
+					"(-0.5,-0.4,0)",
+					"(0,-0.4,0.5)",
+					"(0.5,-0.4,0)",
+					"(0,-0.4,-0.5)",
+				]
+			}
+		}
+	},
+	
+	"export": {
+		"embedded_voxels": [],
+		"connections": {
+			"outputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:button;OnPressed",
+					"deactivate": "instance:button;OnButtonReset"
+				}
+			}
+		},
+		"conditions": [
+			{
+				"type": "switch",
+				"key": "reset_time",
+				"results": {
+					"0": [
+						{
+							"type": "add_instance",
+							"instance": "pedestal_button/pedestal_button_noreset"
+						}
+					],
+					"default": [
+						{
+							"type": "add_instance",
+							"instance": "pedestal_button/pedestal_button",
+							"fixups": {
+								"$reset_time": "reset_time"
+							}
+						}
+					],
+				}
+			}
+		]
+	}
+}

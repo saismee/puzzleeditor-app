@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7u7mxxe4krx2"
+path="res://.godot/imported/arc.obj-2d712b77a999e77f63aa1c98ebbd5686.mesh"
+
+[deps]
+
+files=["res://.godot/imported/arc.obj-2d712b77a999e77f63aa1c98ebbd5686.mesh"]
+
+source_file="res://meshes/handle/arc.obj"
+dest_files=["res://.godot/imported/arc.obj-2d712b77a999e77f63aa1c98ebbd5686.mesh", "res://.godot/imported/arc.obj-2d712b77a999e77f63aa1c98ebbd5686.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

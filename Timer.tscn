@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcdfqtmgdlt40"]
+
+[ext_resource type="Script" path="res://scripts/interface/TimerComponent.gd" id="1_cvi48"]
+[ext_resource type="Texture2D" uid="uid://bobfds2yhbbpp" path="res://themes/perpetual/assets/lcd/lcd_start.png" id="1_t8hxg"]
+[ext_resource type="Texture2D" uid="uid://dxicl30h0hj5n" path="res://themes/perpetual/assets/lcd/lcd0000.png" id="2_4suy8"]
+[ext_resource type="Texture2D" uid="uid://ck4bciq1wlkr5" path="res://themes/perpetual/assets/lcd/lcd0001.png" id="3_sntd0"]
+[ext_resource type="Texture2D" uid="uid://bxopjltfx1ivc" path="res://themes/perpetual/assets/lcd/lcdnoreset.png" id="4_1otp1"]
+
+[node name="Timer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 0
+script = ExtResource("1_cvi48")
+
+[node name="Start" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_t8hxg")
+
+[node name="Digit0" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_4suy8")
+
+[node name="Digit1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_sntd0")
+
+[node name="Digit2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_sntd0")
+
+[node name="Digit3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_sntd0")
+
+[node name="End" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_1otp1")

@@ -1,0 +1,618 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbs2xpa1f2jxo"]
+
+[ext_resource type="Script" path="res://scripts/Ribbon.gd" id="1_5vnld"]
+[ext_resource type="Theme" uid="uid://blqeodxpudovq" path="res://themes/perpetual/perpetual.tres" id="1_a3ceu"]
+[ext_resource type="StyleBox" uid="uid://bmtcre6itfnq4" path="res://themes/perpetual/assets/shadow.tres" id="2_kmgfh"]
+[ext_resource type="Theme" uid="uid://vp0crex3t4hd" path="res://themes/perpetual/perpetual_overlay.tres" id="3_4ow3i"]
+[ext_resource type="Texture2D" uid="uid://dy0kxjmtbmsri" path="res://themes/perpetual/assets/check.png" id="3_akdbs"]
+[ext_resource type="Texture2D" uid="uid://xgopieqobu6a" path="res://themes/perpetual/assets/overlay/angle.png" id="4_3hcce"]
+[ext_resource type="Script" path="res://scripts/ContextMenu.gd" id="4_ypx04"]
+[ext_resource type="Script" path="res://scripts/Connections.gd" id="6_wh5ew"]
+[ext_resource type="StyleBox" uid="uid://bsjqnl3blinrl" path="res://themes/perpetual/assets/bordered_panel.tres" id="7_nqesr"]
+[ext_resource type="Script" path="res://scripts/Options.gd" id="7_rnw8t"]
+[ext_resource type="Theme" uid="uid://dbdavl7dif0n4" path="res://themes/perpetual/perpetual_dialog.tres" id="8_wpjjh"]
+[ext_resource type="Script" path="res://scripts/interface/Palette.gd" id="9_r73ui"]
+[ext_resource type="Script" path="res://scripts/interface/SelectionRenderer.gd" id="11_2e3k6"]
+[ext_resource type="Script" path="res://scripts/conditionseditor/Editor.gd" id="12_8fvca"]
+[ext_resource type="StyleBox" uid="uid://c1b0yv27q5w67" path="res://themes/perpetual/assets/overlay/palette.tres" id="16_vaixw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4kli"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uqd2h"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_a3ceu")
+
+[node name="Inner" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_custom_anchors = true
+
+[node name="Panel" type="Panel" parent="Inner"]
+layout_mode = 0
+anchor_bottom = 1.0
+
+[node name="GeometryPopup" type="Label" parent="Inner"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Recalculating Geometry..."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="Build" type="Label" parent="Inner"]
+z_index = 100
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -403.0
+offset_top = -31.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_4ow3i")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d4kli")
+text = "Build: Unknown"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_layout_mode = 1
+
+[node name="Output" type="RichTextLabel" parent="Inner"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 26)
+bbcode_enabled = true
+text = "ghjghjghjgjhghjghjgj"
+fit_content = true
+autowrap_mode = 1
+
+[node name="Ribbon" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5vnld")
+metadata/_edit_layout_mode = 1
+
+[node name="FileOld" type="MenuButton" parent="Ribbon"]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 120.0
+grow_vertical = 2
+text = "File
+"
+flat = false
+
+[node name="EntitiesOld" type="MenuButton" parent="Ribbon"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_right = 240.0
+offset_bottom = 40.0
+text = "Add Item"
+flat = false
+
+[node name="Skins" type="MenuButton" parent="Ribbon"]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 288.0
+offset_bottom = 36.0
+theme = ExtResource("3_4ow3i")
+text = "Map Style"
+flat = false
+
+[node name="Entities" type="Button" parent="Ribbon"]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 192.0
+offset_bottom = 36.0
+theme = ExtResource("3_4ow3i")
+text = "Add Item"
+
+[node name="File" type="Button" parent="Ribbon"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 36.0
+theme = ExtResource("3_4ow3i")
+text = "File"
+
+[node name="Background" type="Panel" parent="Ribbon"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 288.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Background"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 36.0
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="Ribbon"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 16.0
+offset_right = 100.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Control"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+rotation = 1.5708
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Ribbon/Control"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Background2" type="Panel" parent="Ribbon/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="Control2" type="Control" parent="Ribbon"]
+custom_minimum_size = Vector2(-400, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_top = 16.0
+offset_bottom = 28.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Control2"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+offset_right = 12.0
+offset_bottom = 12.0
+rotation = 1.5708
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Background2" type="Panel" parent="Ribbon/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="Control5" type="Control" parent="Ribbon"]
+custom_minimum_size = Vector2(-400, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -578.0
+offset_top = -28.0
+offset_right = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Control5"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+offset_top = 28.0
+offset_right = 28.0
+offset_bottom = 56.0
+rotation = 3.14159
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Background2" type="Panel" parent="Ribbon/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="Control3" type="Control" parent="Ribbon"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_top = 28.0
+offset_bottom = 343.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Control3"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5708
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Background2" type="Panel" parent="Ribbon/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="Control4" type="Control" parent="Ribbon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -315.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Ribbon/Control4"]
+modulate = Color(0.0666667, 0.0666667, 0.0666667, 0.247059)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 0
+rotation = 3.14159
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="Background2" type="Panel" parent="Ribbon/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_4ow3i")
+
+[node name="ContextShadow" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_kmgfh")
+
+[node name="ContextMenu" type="PopupMenu" parent="."]
+transparent_bg = true
+position = Vector2i(100, 100)
+size = Vector2i(139, 123)
+transparent = true
+hide_on_item_selection = false
+allow_search = false
+item_count = 2
+item_0/text = "hjhkjhk"
+item_0/checkable = 1
+item_0/id = 0
+item_1/text = "amoung"
+item_1/icon = ExtResource("3_akdbs")
+item_1/id = 1
+script = ExtResource("4_ypx04")
+
+[node name="ConnectionMenu" type="PopupMenu" parent="."]
+transparent_bg = true
+position = Vector2i(100, 100)
+size = Vector2i(28, 8)
+unresizable = false
+transparent = true
+allow_search = false
+
+[node name="Connections" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("6_wh5ew")
+
+[node name="Options" type="Node" parent="."]
+script = ExtResource("7_rnw8t")
+
+[node name="Window" type="Window" parent="Options"]
+title = "Options"
+initial_position = 1
+size = Vector2i(600, 400)
+visible = false
+transient = true
+min_size = Vector2i(100, 100)
+theme = ExtResource("8_wpjjh")
+
+[node name="Panel" type="Panel" parent="Options/Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/Window"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Console" type="CheckBox" parent="Options/Window/VBoxContainer"]
+layout_mode = 2
+text = "Show Console"
+
+[node name="Developer" type="CheckBox" parent="Options/Window/VBoxContainer"]
+layout_mode = 2
+text = "Developer Mode"
+
+[node name="AddGame" type="Button" parent="Options/Window/VBoxContainer"]
+layout_mode = 2
+text = "Add New Game"
+
+[node name="SelectGame" type="MenuButton" parent="Options/Window/VBoxContainer"]
+layout_mode = 2
+text = "Current Game: ?"
+
+[node name="Palette" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -250.0
+offset_right = 20.0
+offset_bottom = 250.0
+grow_vertical = 2
+
+[node name="Palette" type="Control" parent="Palette"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_right = 315.0
+offset_bottom = 250.0
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("9_r73ui")
+
+[node name="Panel" type="Panel" parent="Palette/Palette"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("7_nqesr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Palette/Palette/Panel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uqd2h")
+
+[node name="GridContainer" type="GridContainer" parent="Palette/Palette/Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 4
+
+[node name="PaletteGrabber3" type="Panel" parent="Palette/Palette/Panel"]
+modulate = Color(0, 0, 0, 0.188235)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_right = 15.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("16_vaixw")
+
+[node name="SelectionRenderer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("11_2e3k6")
+
+[node name="ConditionsEditor" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0.352941, 0.352941, 0.352941, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_wpjjh")
+
+[node name="GraphEdit" type="GraphEdit" parent="ConditionsEditor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/grid_minor = Color(0.266667, 0.266667, 0.266667, 1)
+theme_override_colors/grid_major = Color(0.372549, 0.372549, 0.372549, 1)
+theme_override_styles/menu_panel = ExtResource("7_nqesr")
+snapping_distance = 50
+show_grid_buttons = false
+show_minimap_button = false
+script = ExtResource("12_8fvca")
+
+[node name="Ribbon" type="Panel" parent="ConditionsEditor"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+metadata/_edit_layout_mode = 1
+
+[node name="AddNode" type="MenuButton" parent="ConditionsEditor/Ribbon"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 40.0
+text = "Add Node"
+flat = false
+
+[node name="Entities" type="MenuButton" parent="ConditionsEditor/Ribbon"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 240.0
+offset_bottom = 40.0
+text = "Open Entity"
+flat = false
+
+[node name="Exit" type="Button" parent="ConditionsEditor/Ribbon"]
+layout_mode = 0
+offset_left = 240.0
+offset_right = 360.0
+offset_bottom = 40.0
+text = "Exit Editor"
+
+[node name="Save" type="Button" parent="ConditionsEditor/Ribbon"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Copy to Clipboard"
+
+[node name="PaletteGrabber2" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 0.188235)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_right = 20.0
+offset_bottom = 250.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("16_vaixw")
+
+[node name="TextureRect" type="TextureRect" parent="PaletteGrabber2"]
+modulate = Color(0.666667, 0.67451, 0.670588, 1)
+layout_mode = 1
+offset_right = 20.0
+offset_bottom = 20.0
+rotation = -1.5708
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PaletteGrabber2"]
+modulate = Color(0.666667, 0.67451, 0.670588, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 0
+texture = ExtResource("4_3hcce")
+expand_mode = 1
+
+[connection signal="begin_node_move" from="ConditionsEditor/GraphEdit" to="ConditionsEditor/GraphEdit" method="_on_begin_node_move"]
+[connection signal="connection_drag_started" from="ConditionsEditor/GraphEdit" to="ConditionsEditor/GraphEdit" method="_on_connection_drag_started"]
+[connection signal="connection_request" from="ConditionsEditor/GraphEdit" to="ConditionsEditor/GraphEdit" method="_connection_request"]
+[connection signal="connection_to_empty" from="ConditionsEditor/GraphEdit" to="ConditionsEditor/GraphEdit" method="_connection_to_empty"]
+[connection signal="disconnection_request" from="ConditionsEditor/GraphEdit" to="ConditionsEditor/GraphEdit" method="_disconnection_request"]
+[connection signal="pressed" from="ConditionsEditor/Ribbon/Exit" to="ConditionsEditor/GraphEdit" method="exit"]
+[connection signal="pressed" from="ConditionsEditor/Ribbon/Save" to="ConditionsEditor/GraphEdit" method="save"]

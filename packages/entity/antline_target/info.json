@@ -1,0 +1,32 @@
+{
+	"editor_version": 3,
+	"name": "Antline Target",
+	
+	"editor": {
+		"hidden": true,
+		"mesh": "res://meshes/antline_handle.obj",
+		
+		"size": "(0.25,0.25,0.25)"
+	},
+	
+	"export": {
+		"embedded_voxels": [],
+		"connections": {
+			"outputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:button;OnPressed",
+					"deactivate": "instance:button;OnUnPressed"
+				}
+			},
+			"inputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:button;OnPressed",
+					"deactivate": "instance:button;OnUnPressed"
+				}
+			}
+		},
+		"conditions": []
+	}
+}

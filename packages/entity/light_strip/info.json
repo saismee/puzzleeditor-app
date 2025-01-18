@@ -1,0 +1,95 @@
+{
+	"editor_version": 3,
+	"name": "Light Strip",
+	"icon": "res://packages/entity/light_strip/icon.png",
+	
+	"editor": {
+		"size": "(1,1,0.25)",
+
+		"handles": {
+			"rotation": {
+				"type": "rotation_90_deg",
+				"mesh": "res://meshes/handle/arc.obj",
+				"rotatable": false,
+				"value": 0,
+				"positions": [
+					"(-0.5,-0.4,0)",
+					"(0,-0.4,0.5)",
+					"(0.5,-0.4,0)",
+					"(0,-0.4,-0.5)",
+				]
+			}
+		},
+		
+		"conditions": [
+			{
+				"type": "switch",
+				"key": "temperature",
+				"results": {
+					"0": [
+						{
+							"type": "set_mesh",
+							"mesh": "res://packages/editor/meshes/light_strip/light_strip.obj"
+						}
+					],
+					"1": [
+						{
+							"type": "set_mesh",
+							"mesh": "res://packages/editor/meshes/light_strip/light_strip_warm.obj"
+						}
+					],
+					"2": [
+						{
+							"type": "set_mesh",
+							"mesh": "res://packages/editor/meshes/light_strip/light_strip_cold.obj"
+						}
+					]
+				}
+			}
+		],
+		
+		"options": {
+			"temperature": {
+				"type": "radio",
+				"value": 0,
+				"name": "Light Temperature",
+				"options": [
+					"Neutral",
+					"Warm",
+					"Cold"
+				]
+			}
+		}
+	},
+	
+	"export": {
+		"embedded_voxels": [],
+		"connections": {},
+		"conditions": [
+			{
+				"type": "switch",
+				"key": "temperature",
+				"results": {
+					"0": [
+						{
+							"type": "add_instance",
+							"instance": "light_strip/neutral"
+						}
+					],
+					"1": [
+						{
+							"type": "add_instance",
+							"instance": "light_strip/warm"
+						}
+					],
+					"2": [
+						{
+							"type": "add_instance",
+							"instance": "light_strip/cold"
+						}
+					]
+				}
+			}
+		]
+	}
+}

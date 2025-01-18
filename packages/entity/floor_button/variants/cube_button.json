@@ -1,0 +1,7 @@
+{
+	"name": "Cube Button",
+	"icon": "res://packages/entity/floor_button/cube_icon.png",
+    "options": {
+        "button_type": 1
+    }
+}

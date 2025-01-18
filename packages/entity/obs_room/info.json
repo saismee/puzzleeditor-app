@@ -1,0 +1,27 @@
+
+{
+	"editor_version": 3,
+	"name": "Observation Room",
+	"icon": "res://packages/entity/obs_room/icon.png",
+	
+	"editor": {
+		"mesh": "res://packages/editor/meshes/observation_1x1.obj",
+		
+		"size": "(1,1,1)"
+	},
+	
+	"export": {
+		"embedded_volumes": [
+			{
+				"start": "(0, 0, 0)",
+				"end": "(1, -1, 1)"
+			}
+		],
+		"conditions": [
+			{
+				"type": "add_instance",
+				"instance": "obs_room_1x1"
+			}
+		]
+	}
+}

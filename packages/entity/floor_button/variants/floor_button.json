@@ -1,0 +1,7 @@
+{
+	"name": "Weighted Button",
+	"icon": "res://packages/entity/floor_button/weighted_icon.png",
+    "options": {
+        "button_type": 0
+    }
+}

@@ -1,0 +1,70 @@
+{
+	"editor_version": 3,
+	"name": "Hard Light Bridge",
+	"icon": "res://packages/entity/bridge_emitter/icon.png",
+	
+	"editor": {
+		"size": "(1,0.25,0.25)",
+		
+		"conditions": [
+			{
+				"type": "set_mesh",
+				"mesh": "res://packages/editor/meshes/bridge_emitter.obj"
+			},
+			{
+				"type": "rotate",
+				"rotation": "(0,0,$pitch_angle)"
+			}
+		],
+		
+		"options": {
+			"start_enabled": {
+				"type": "toggle",
+				"value": true,
+				"name": "Start Enabled"
+			},
+			"pitch_angle": {
+				"type": "integer",
+				"value": 0,
+				"min": -45,
+				"max": 45,
+				"step": 5,
+				"name": "Angle",
+				"icon": "res://themes/perpetual/assets/lcd/lcdendtheta.png"
+			}
+		},
+		"handles": {
+			"rotation": {
+				"type": "rotation_90_deg",
+				"mesh": "res://meshes/handle/arc.obj",
+				"rotatable": false,
+				"value": 0,
+				"positions": [
+					"(-0.5,0.2,0)",
+					"(0,0.2,0.5)",
+					"(0.5,0.2,0)",
+					"(0,0.2,-0.5)"
+				]
+			}
+		}
+	},
+	
+	"export": {
+		"embedded_voxels": [],
+		"connections": {
+			"inputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:counter;Add,1,0,-1",
+					"deactivate": "instance:counter;Subtract,1,0,-1"
+				}
+			}
+		},
+		"conditions": [
+			{
+				"type": "add_instance",
+				"instance": "bridge_emitter"
+			}
+		]
+	}
+}

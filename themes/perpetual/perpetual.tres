@@ -1,0 +1,116 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://blqeodxpudovq"]
+
+[ext_resource type="Texture2D" uid="uid://dy0kxjmtbmsri" path="res://themes/perpetual/assets/check.png" id="1_plshx"]
+[ext_resource type="Texture2D" uid="uid://dtptmcq10aass" path="res://themes/perpetual/assets/radio.png" id="2_rxs6r"]
+[ext_resource type="StyleBox" uid="uid://djgff3hrb64iw" path="res://themes/perpetual/assets/highlighted.tres" id="2_vin33"]
+[ext_resource type="Texture2D" uid="uid://13bm07uogrbi" path="res://themes/perpetual/assets/unradio.png" id="3_2h5dm"]
+[ext_resource type="Texture2D" uid="uid://di3tjka6if7mx" path="res://themes/perpetual/assets/uncheck.png" id="4_uaxph"]
+[ext_resource type="StyleBox" uid="uid://bt26cp6tgj762" path="res://themes/perpetual/assets/textpanel_highlight.tres" id="7_5rxck"]
+[ext_resource type="Texture2D" uid="uid://cp25cf5h4lnn7" path="res://themes/perpetual/assets/flyout.png" id="7_culyb"]
+[ext_resource type="StyleBox" uid="uid://bqf4jbr7hxocm" path="res://themes/perpetual/assets/separator.tres" id="7_f7qcs"]
+[ext_resource type="StyleBox" uid="uid://dcc0or2bl2afb" path="res://themes/perpetual/assets/transparentpanel.tres" id="7_pkdxq"]
+[ext_resource type="StyleBox" uid="uid://dv4qgvqgc0h1p" path="res://themes/perpetual/assets/textpanel.tres" id="8_h6yjc"]
+[ext_resource type="StyleBox" uid="uid://c3jb4m0fegujb" path="res://themes/perpetual/assets/menupanel.tres" id="8_rym8q"]
+[ext_resource type="FontFile" uid="uid://btu7tgl34npo0" path="res://themes/perpetual/assets/Roboto-Regular.ttf" id="9_kuf8h"]
+[ext_resource type="StyleBox" uid="uid://7avcq12irxkt" path="res://themes/perpetual/assets/windowborder.tres" id="11_lcfic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebjyr"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("9_kuf8h")
+default_font_size = 0
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_ebjyr")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/f = 12
+Button/styles/disabled = SubResource("StyleBoxFlat_ebjyr")
+Button/styles/focus = ExtResource("2_vin33")
+Button/styles/hover = ExtResource("2_vin33")
+Button/styles/normal = SubResource("StyleBoxFlat_ebjyr")
+Button/styles/pressed = SubResource("StyleBoxFlat_ebjyr")
+CheckBox/font_sizes/f = 12
+CheckBox/icons/checked = ExtResource("1_plshx")
+CheckBox/icons/checked_disabled = ExtResource("1_plshx")
+CheckBox/icons/radio_checked = ExtResource("2_rxs6r")
+CheckBox/icons/radio_checked_disabled = ExtResource("2_rxs6r")
+CheckBox/icons/radio_unchecked = ExtResource("3_2h5dm")
+CheckBox/icons/radio_unchecked_disabled = ExtResource("3_2h5dm")
+CheckBox/icons/unchecked = ExtResource("4_uaxph")
+CheckBox/icons/unchecked_disabled = ExtResource("4_uaxph")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/f = 12
+Label/styles/normal = SubResource("StyleBoxFlat_ebjyr")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/styles/focus = ExtResource("7_5rxck")
+LineEdit/styles/normal = ExtResource("8_h6yjc")
+LineEdit/styles/read_only = ExtResource("8_h6yjc")
+MenuButton/colors/font_color = Color(0, 0, 0, 1)
+MenuButton/colors/font_disabled_color = Color(0, 0, 0, 0.301961)
+MenuButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MenuButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MenuButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MenuButton/font_sizes/f = 12
+MenuButton/font_sizes/font_size = 12
+MenuButton/styles/disabled = SubResource("StyleBoxFlat_ebjyr")
+MenuButton/styles/focus = ExtResource("2_vin33")
+MenuButton/styles/hover = ExtResource("2_vin33")
+MenuButton/styles/normal = SubResource("StyleBoxFlat_ebjyr")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_ebjyr")
+Panel/styles/panel = ExtResource("7_pkdxq")
+PopupDialog/styles/panel = SubResource("StyleBoxFlat_ebjyr")
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_disabled_color = Color(0, 0, 0, 0.6)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_outline_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_separator_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_outline_color = Color(1, 1, 1, 1)
+PopupMenu/constants/h_separation = 8
+PopupMenu/constants/indent = 8
+PopupMenu/constants/item_end_padding = 2
+PopupMenu/constants/item_start_padding = 2
+PopupMenu/constants/outline_size = 0
+PopupMenu/constants/separator_outline_size = 0
+PopupMenu/constants/v_separation = 8
+PopupMenu/font_sizes/f = 12
+PopupMenu/font_sizes/font_separator_size = 16
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/font_sizes/fs = 12
+PopupMenu/icons/checked = ExtResource("1_plshx")
+PopupMenu/icons/checked_disabled = ExtResource("1_plshx")
+PopupMenu/icons/radio_checked = ExtResource("2_rxs6r")
+PopupMenu/icons/radio_checked_disabled = ExtResource("2_rxs6r")
+PopupMenu/icons/radio_unchecked = ExtResource("3_2h5dm")
+PopupMenu/icons/radio_unchecked_disabled = ExtResource("3_2h5dm")
+PopupMenu/icons/submenu = ExtResource("7_culyb")
+PopupMenu/icons/unchecked = ExtResource("4_uaxph")
+PopupMenu/icons/unchecked_disabled = ExtResource("4_uaxph")
+PopupMenu/styles/hover = ExtResource("2_vin33")
+PopupMenu/styles/labeled_separator_left = ExtResource("7_f7qcs")
+PopupMenu/styles/labeled_separator_right = ExtResource("7_f7qcs")
+PopupMenu/styles/panel = ExtResource("8_rym8q")
+PopupMenu/styles/panel_disabled = ExtResource("8_rym8q")
+PopupMenu/styles/separator = ExtResource("7_f7qcs")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_ebjyr")
+Tree/colors/font_color = Color(0, 0, 0, 1)
+Tree/colors/font_selected_color = Color(0, 0, 0, 1)
+Tree/styles/cursor = ExtResource("2_vin33")
+Tree/styles/cursor_unfocused = ExtResource("2_vin33")
+Tree/styles/panel = ExtResource("8_h6yjc")
+Tree/styles/selected = ExtResource("7_5rxck")
+Tree/styles/selected_focus = ExtResource("7_5rxck")
+Window/constants/title_height = 30
+Window/font_sizes/tf = 12
+Window/styles/embedded_border = ExtResource("11_lcfic")

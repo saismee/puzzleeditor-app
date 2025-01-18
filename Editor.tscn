@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0evbusl4do02"]
+
+[ext_resource type="PackedScene" uid="uid://dbs2xpa1f2jxo" path="res://UI.tscn" id="1"]
+[ext_resource type="Environment" uid="uid://bjoeovmqgcnnn" path="res://default_env.tres" id="1_veg2x"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_aut75"]
+[ext_resource type="Script" path="res://scripts/Voxels.gd" id="3_ksjqc"]
+[ext_resource type="Material" uid="uid://cgoe3b6kqo8xv" path="res://materials/sel.tres" id="4_nkd1v"]
+[ext_resource type="Script" path="res://scripts/Selection.gd" id="6_h4u0p"]
+[ext_resource type="Script" path="res://scripts/Entities.gd" id="7_k2d2m"]
+[ext_resource type="Script" path="res://scripts/export/Export.gd" id="9_lgbm5"]
+[ext_resource type="ArrayMesh" uid="uid://274jrytbncx8" path="res://meshes/directional.obj" id="10_eb7nc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w0kr7"]
+
+[node name="Spatial" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+fov = 30.0
+script = ExtResource("2_aut75")
+
+[node name="Voxels" type="MeshInstance3D" parent="."]
+gi_mode = 0
+script = ExtResource("3_ksjqc")
+
+[node name="Selection" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_nkd1v")
+mesh = SubResource("ArrayMesh_w0kr7")
+script = ExtResource("6_h4u0p")
+
+[node name="Entities" type="MeshInstance3D" parent="."]
+script = ExtResource("7_k2d2m")
+
+[node name="UI" parent="." instance=ExtResource("1")]
+
+[node name="Export" type="Node" parent="."]
+script = ExtResource("9_lgbm5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.479191, 0.675153, -0.560842, -0.562295, 0.72678, 0.394481, 0.673944, 0.126327, 0.727902, 0, 0, 0)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_bake_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DirectionalLight3D"]
+visible = false
+mesh = ExtResource("10_eb7nc")
+
+[node name="Handles" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_veg2x")

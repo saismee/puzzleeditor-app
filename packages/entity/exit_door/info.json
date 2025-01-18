@@ -1,0 +1,64 @@
+{
+	"editor_version": 3,
+	"name": "Exit Door",
+	
+	"editor": {
+		"locked": true,
+		"hidden": true,
+
+		"conditions": [
+			{
+				"type": "switch",
+				"key": "start_open",
+				"results": {
+					"false": [
+						{
+							"type": "set_mesh",
+							"mesh": "res://packages/editor/meshes/exit_door.obj"
+						}
+					],
+					"true": [
+						{
+							"type": "set_mesh",
+							"mesh": "res://packages/editor/meshes/exit_door_open.obj"
+						}
+					]
+				}
+			}
+		],
+		
+		"size": "(1,1,1)",
+		
+		"options": {
+			"start_open": {
+				"type": "toggle",
+				"value": true,
+				"name": "Start Open"
+			}
+		}
+	},
+	
+	"export": {
+		"embedded_volumes": [
+			{
+				"start": "(0, 0, 0)",
+				"end": "(1, -1, 1)"
+			}
+		],
+		"connections": {
+			"inputs": {
+				"default": {
+					"name": "Default",
+					"activate": "instance:door;Open,,0,-1",
+					"deactivate": "instance:door;Close,,0,-1"
+				}
+			}
+		},
+		"conditions": [
+			{
+				"type": "add_instance",
+				"instance": "exit_door"
+			}
+		]
+	}
+}

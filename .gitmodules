@@ -1,0 +1,6 @@
+[submodule "source-gd"]
+	path = scripts/sourcegd
+	url = https://github.com/saismee/source-gd
+[submodule "puzzleeditor-packages"]
+	path = packages
+	url = https://github.com/saismee/puzzleeditor-packages.git
